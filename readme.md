@@ -9,7 +9,7 @@ We recommend referring to the simple samples provided, which work on both Window
 
 ```cpp
 #include <stdio.h>
-#include <marLocale.h>
+#include "marLocale.h"
 
 int main()
 {
