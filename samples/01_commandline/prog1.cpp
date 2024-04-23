@@ -23,7 +23,7 @@ int main()
   printf("%s\n", translate("Hello World").c_str());
   printf("%s\n", translate("Goodbye").c_str());
 
-  // English
+  // Japanese
   setLanguage("ja");
   printf("%s\n", translate("Hello World").c_str());
   printf("%s\n", translate("Goodbye").c_str());
