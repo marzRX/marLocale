@@ -45,24 +45,23 @@ make
 
 ## Requirements
 
-This project depends on the **nlohmann/json** library for JSON handling. Below are the setup instructions for different operating systems:
-### Windows (using MSYS2)
+This project depends on the **nlohmann/json** library for JSON handling. Below are the setup instructions for different operating systems.
+### Windows (using MSYS2):
 
-You can install the nlohmann/json library easily using pacman in MSYS2:
+You can install the nlohmann/json library easily using pacman in MSYS2.
 
 ```bash
 pacman -S mingw-w64-x86_64-nlohmann-json
 ```
 
-### Linux Mint
+### Linux Mint (Ubuntu):
 
-For Linux Mint, you can download the library directly from the GitHub releases page and install it manually:
+For Linux Mint, you can download the library directly from the GitHub releases page and install it manually.
 
 ```bash
-wget https://github.com/nlohmann/json/releases/download/v3.10.5/json.hpp -O /usr/include/nlohmann/json.hpp
+sudo mkdir -p /usr/include/nlohmann
+sudo wget https://github.com/nlohmann/json/releases/download/v3.10.5/json.hpp -O /usr/include/nlohmann/json.hpp
 ```
-
-Please ensure that you have the necessary permissions to write to the /usr/include/nlohmann/ directory or use sudo if required.
 
 
 ## License
