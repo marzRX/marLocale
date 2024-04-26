@@ -45,8 +45,9 @@ make
 
 ## Requirements
 
+#### nlohmann/json
 This project depends on the **nlohmann/json** library for JSON handling. Below are the setup instructions for different operating systems.
-### Windows (using MSYS2):
+##### Windows (using MSYS2):
 
 You can install the nlohmann/json library easily using pacman in MSYS2.
 
@@ -54,7 +55,7 @@ You can install the nlohmann/json library easily using pacman in MSYS2.
 pacman -S mingw-w64-x86_64-nlohmann-json
 ```
 
-### Linux Mint (Ubuntu):
+##### Linux Mint (Ubuntu):
 
 For Linux Mint, you can download the library directly from the GitHub releases page and install it manually.
 
@@ -63,6 +64,25 @@ sudo mkdir -p /usr/include/nlohmann
 sudo wget https://github.com/nlohmann/json/releases/download/v3.10.5/json.hpp -O /usr/include/nlohmann/json.hpp
 ```
 
+#### GLFW and GLEW
+
+Although marLocale does not require GLFW and GLEW, they are necessary to run the sample application 02_gui.
+
+##### Windows (using MSYS2):
+
+```bash
+pacman -Syu
+pacman -S mingw-w64-x86_64-glfw
+pacman -S mingw-w64-x86_64-glew
+```
+
+##### Linux Mint (Ubuntu):
+
+```bash
+sudo apt update
+sudo apt install -y libglfw3 libglfw3-dev
+sudo apt install -y libglew-dev
+```
 
 ## License
 
