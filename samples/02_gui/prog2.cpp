@@ -197,6 +197,12 @@ int main()
   // 背景色を指定する。
   glClearColor(clear_color.x, clear_color.y, clear_color.z, 1.0);
 
+  if (isJapaneseOS()) {
+    setLanguage("ja");
+  } else {
+    setLanguage("en");
+  }
+
   // Register callbacks. (コールバックを登録します。)
   glfwSetWindowSizeCallback(window, window_size_callback);
   glfwSetCharCallback(window, char_callback);
