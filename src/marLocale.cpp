@@ -3,6 +3,8 @@
 #include <iostream>
 #include "marLocale.h"
 
+#define USE_ENVIRONMENT_BASED_LOCALE
+
 // Use the JSON library namespace.
 // JSONライブラリの名前空間を使う。
 using json = nlohmann::json;
@@ -103,6 +105,9 @@ bool isJapaneseOS()
   }
 #elif defined(__linux__)
   // Linux
+#ifdef USE_ENVIRONMENT_BASED_LOCALE
+  // Considers the OS as Japanese if Japanese input is added, even if the system UI language is English.
+  // 英語OSであっても日本語入力が追加されていれば日本語と判断
   // Set locale from environment variables.
   // 環境変数からロケールを設定します。
   setlocale(LC_ALL, "");
@@ -115,10 +120,20 @@ bool isJapaneseOS()
     }
   }
 #else
+  // Determines based on the system UI language.
+  // システムのUI言語に基づいて判断
+  const char* lang = getenv("LANG");
+  if (lang) {
+    if (strstr(lang, "ja_JP") != nullptr) {
+      result = true; // OS is Japanese
+    }
+  }
+#endif // USE_ENVIRONMENT_BASED_LOCALE
+#else
   // Other platforms
   // Code to handle other platforms can be added here.
   // 他のプラットフォームのためのコードはここに追加することができます。
-#endif
+#endif // _WIN32, __linux__, or other platforms
   return result;
 }
 
@@ -148,6 +163,6 @@ bool isEnglishOS()
   // Other platforms
   // Code to handle other platforms can be added here.
   // 他のプラットフォームのためのコードはここに追加することができます。
-#endif
+#endif // _WIN32, __linux__, or other platforms
   return result;
 }
