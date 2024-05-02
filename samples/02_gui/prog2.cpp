@@ -222,21 +222,21 @@ int main()
 
   //----------------------------------------------------------------------
   float text_fontsize = 20.0f; // font size (フォントサイズ)
-  ImFontConfig icons_config;
+  ImFontConfig fonts_config;
 
   // Prevent ImGui from freeing font data.
   // ImGuiがフォントデータを解放しないようにする。
-  icons_config.FontDataOwnedByAtlas = false;
+  fonts_config.FontDataOwnedByAtlas = false;
 
   // Load Japanese characters from .ttf font file for use in ImGui.
   // .ttfファイルから日本語の文字を読み込み、ImGuiで使用します。
   io.Fonts->AddFontFromFileTTF(FONT_SRC_JAPANESE, text_fontsize, NULL, io.Fonts->GetGlyphRangesJapanese());
 
-  icons_config.MergeMode = true;
-  icons_config.PixelSnapH = true;
+  fonts_config.MergeMode = true;
+  fonts_config.PixelSnapH = true;
 
-  io.Fonts->AddFontFromFileTTF(FONT_SRC_ARABIC, text_fontsize, &icons_config, arabic_ranges);
-  io.Fonts->AddFontFromFileTTF(FONT_SRC_DEVANAGARI, text_fontsize, &icons_config, devanagari_ranges);
+  io.Fonts->AddFontFromFileTTF(FONT_SRC_ARABIC, text_fontsize, &fonts_config, arabic_ranges);
+  io.Fonts->AddFontFromFileTTF(FONT_SRC_DEVANAGARI, text_fontsize, &fonts_config, devanagari_ranges);
   //----------------------------------------------------------------------
 
   running = GL_TRUE;
