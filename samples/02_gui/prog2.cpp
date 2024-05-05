@@ -199,8 +199,10 @@ int main()
 
   if (isJapaneseOS()) {
     setLanguage("ja");
+    gLanguage = 1;
   } else {
     setLanguage("en");
+    gLanguage = 0;
   }
 
   // Register callbacks. (コールバックを登録します。)
