@@ -3,6 +3,18 @@
 
 This module is designed to support internationalization for C++ applications. Since the language configuration files are in JSON format, users can easily localize by editing the JSON files in their environment.
 
+## Screenshots
+
+<div style="display: flex; justify-content: space-around; align-items: center;">
+  <img src="imgs/sshot_marlocale_en.png" alt="marLocale Demo(en)" width="45%">
+  <img src="imgs/sshot_marlocale_ja.png" alt="marLocale Demo(ja)" width="45%">
+</div>
+<div style="display: flex; justify-content: space-around; align-items: center;">
+  <img src="imgs/sshot_marlocale_es.png" alt="marLocale Demo(es)" width="45%">
+  <img src="imgs/sshot_marlocale_arabic.png" alt="marLocale Demo(arabic)" width="45%">
+</div>
+
+
 ## How to Use
 
 We recommend referring to the simple samples provided, which work on both Windows and Linux platforms.
