@@ -2,9 +2,9 @@ CURROOT = $(shell git rev-parse --show-cdup)
 # CURROOT's trailing '/', gets the path to the Git root
 # CURROOT の終端は、'/', Git のルートとなるパスを取得してる
 
-CFLAGS = -c -g -std=gnu++17 -Wno-format-security
+CXXFLAGS = -c -g -std=gnu++17 -Wno-format-security
 
-CC = g++
+CXX = g++
 DIR_SRC = $(CURROOT)src
 DIR_IMGUI = $(CURROOT)External/imgui
 INC = -I$(DIR_SRC) -I$(DIR_IMGUI)
@@ -22,31 +22,31 @@ OBJS = prog$(V).o marLocale.o \
 imgui.o imgui_widgets.o imgui_draw.o imgui_impl_glfw.o imgui_impl_opengl3.o imgui_tables.o
 
 $(TARGET): $(OBJS)
-	$(CC) $(INC) -o $(TARGET) $(OBJS) $(LIBS)
+	$(CXX) $(INC) -o $(TARGET) $(OBJS) $(LIBS)
 
 marLocale.o: $(DIR_SRC)/marLocale.cpp $(DIR_SRC)/marLocale.h
-	$(CC) $(INC) $(CFLAGS) $(DIR_SRC)/marLocale.cpp
+	$(CXX) $(INC) $(CXXFLAGS) $(DIR_SRC)/marLocale.cpp
 
 imgui.o: $(DIR_IMGUI)/imgui.cpp
-	$(CC) $(INC) $(CFLAGS) $(DIR_IMGUI)/imgui.cpp
+	$(CXX) $(INC) $(CXXFLAGS) $(DIR_IMGUI)/imgui.cpp
 
 imgui_widgets.o: $(DIR_IMGUI)/imgui_widgets.cpp
-	$(CC) $(INC) $(CFLAGS) $(DIR_IMGUI)/imgui_widgets.cpp
+	$(CXX) $(INC) $(CXXFLAGS) $(DIR_IMGUI)/imgui_widgets.cpp
 
 imgui_draw.o: $(DIR_IMGUI)/imgui_draw.cpp
-	$(CC) $(INC) $(CFLAGS) $(DIR_IMGUI)/imgui_draw.cpp
+	$(CXX) $(INC) $(CXXFLAGS) $(DIR_IMGUI)/imgui_draw.cpp
 
 imgui_impl_glfw.o: $(DIR_IMGUI)/imgui_impl_glfw.cpp
-	$(CC) $(INC) $(CFLAGS) $(DIR_IMGUI)/imgui_impl_glfw.cpp
+	$(CXX) $(INC) $(CXXFLAGS) $(DIR_IMGUI)/imgui_impl_glfw.cpp
 
 imgui_impl_opengl3.o: $(DIR_IMGUI)/imgui_impl_opengl3.cpp
-	$(CC) $(INC) $(CFLAGS) $(DIR_IMGUI)/imgui_impl_opengl3.cpp
+	$(CXX) $(INC) $(CXXFLAGS) $(DIR_IMGUI)/imgui_impl_opengl3.cpp
 
 imgui_tables.o: $(DIR_IMGUI)/imgui_tables.cpp
-	$(CC) $(INC) $(CFLAGS) $(DIR_IMGUI)/imgui_tables.cpp
+	$(CXX) $(INC) $(CXXFLAGS) $(DIR_IMGUI)/imgui_tables.cpp
 
 prog$(V).o: prog$(V).cpp
-	$(CC) $(INC) $(CFLAGS) prog$(V).cpp
+	$(CXX) $(INC) $(CXXFLAGS) prog$(V).cpp
 
 all: $(TARGET)
 

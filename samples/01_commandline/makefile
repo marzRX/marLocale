@@ -1,20 +1,20 @@
-CC = g++
+CXX = g++
 DIR_SRC = ../../src
 INC = -I$(DIR_SRC)
 
 V ?= 1
 TARGET = prog$(V).exe
 OBJS = prog$(V).o marLocale.o
-CFLAGS = -c -g
+CXXFLAGS = -c -g
 
 $(TARGET): $(OBJS)
-	$(CC) $(INC) -o $(TARGET) $(OBJS) $(LIBS)
+	$(CXX) $(INC) -o $(TARGET) $(OBJS) $(LIBS)
 
 prog$(V).o: prog$(V).cpp
-	$(CC) $(INC) $(CFLAGS) prog$(V).cpp
+	$(CXX) $(INC) $(CXXFLAGS) prog$(V).cpp
 
 marLocale.o: $(DIR_SRC)/marLocale.cpp $(DIR_SRC)/marLocale.h
-	$(CC) $(INC) $(CFLAGS) $(DIR_SRC)/marLocale.cpp
+	$(CXX) $(INC) $(CXXFLAGS) $(DIR_SRC)/marLocale.cpp
 
 all: $(TARGET)
 
