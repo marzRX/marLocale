@@ -7,6 +7,8 @@ TARGET = prog$(V).exe
 OBJS = prog$(V).o marLocale.o
 CXXFLAGS = -c -g
 
+all: $(TARGET)
+
 $(TARGET): $(OBJS)
 	$(CXX) $(INC) -o $(TARGET) $(OBJS) $(LIBS)
 
@@ -15,8 +17,6 @@ prog$(V).o: prog$(V).cpp
 
 marLocale.o: $(DIR_SRC)/marLocale.cpp $(DIR_SRC)/marLocale.h
 	$(CXX) $(INC) $(CXXFLAGS) $(DIR_SRC)/marLocale.cpp
-
-all: $(TARGET)
 
 clean:
 	-rm -f *.o

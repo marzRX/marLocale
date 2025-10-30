@@ -21,6 +21,8 @@ TARGET = prog$(V).exe
 OBJS = prog$(V).o marLocale.o \
 imgui.o imgui_widgets.o imgui_draw.o imgui_impl_glfw.o imgui_impl_opengl3.o imgui_tables.o
 
+all: $(TARGET)
+
 $(TARGET): $(OBJS)
 	$(CXX) $(INC) -o $(TARGET) $(OBJS) $(LIBS)
 
@@ -47,8 +49,6 @@ imgui_tables.o: $(DIR_IMGUI)/imgui_tables.cpp
 
 prog$(V).o: prog$(V).cpp
 	$(CXX) $(INC) $(CXXFLAGS) prog$(V).cpp
-
-all: $(TARGET)
 
 clean:
 	-rm -f *.o
