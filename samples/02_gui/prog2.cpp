@@ -31,13 +31,13 @@ static const ImWchar devanagari_ranges[] = {
     0
 };
 
-int running;
+static bool running = true;
 
 // Function prototype declaration for OpenGL cleanup.
 // OpenGLのクリーンアップのための関数プロトタイプ宣言。
 void quit_opengl();
 
-ImVec4 clear_color = ImVec4(0.65, 0.87, 0.65, 1.0);
+static ImVec4 clear_color = ImVec4(0.65, 0.87, 0.65, 1.0);
 
 int gLanguage = 0; // 0: English, 1: Japanese, 2: Spanish, ...
 int g_locale_result = 0;
@@ -64,7 +64,7 @@ void char_callback(GLFWwindow* window, unsigned int codepoint)
     case 'q':
     case 'Q':
     case 27: // [Esc]
-      running = GL_FALSE;
+      running = false;
       break;
 
     default:
@@ -241,7 +241,6 @@ int main()
   io.Fonts->AddFontFromFileTTF(FONT_SRC_DEVANAGARI, text_fontsize, &fonts_config, devanagari_ranges);
   //----------------------------------------------------------------------
 
-  running = GL_TRUE;
   while ( running && (! glfwWindowShouldClose(window)) ) {
     // Poll and handle events (inputs, window resize, etc.)
     glfwPollEvents();
