@@ -5,7 +5,7 @@ INC = -I$(DIR_SRC)
 V ?= 1
 TARGET = prog$(V).exe
 OBJS = prog$(V).o marLocale.o
-CXXFLAGS = -c -g
+CXXFLAGS = -g
 
 all: $(TARGET)
 
@@ -13,10 +13,10 @@ $(TARGET): $(OBJS)
 	$(CXX) $(INC) -o $(TARGET) $(OBJS) $(LIBS)
 
 prog$(V).o: prog$(V).cpp
-	$(CXX) $(INC) $(CXXFLAGS) prog$(V).cpp
+	$(CXX) $(INC) $(CXXFLAGS) -c $< -o $@
 
 marLocale.o: $(DIR_SRC)/marLocale.cpp $(DIR_SRC)/marLocale.h
-	$(CXX) $(INC) $(CXXFLAGS) $(DIR_SRC)/marLocale.cpp
+	$(CXX) $(INC) $(CXXFLAGS) -c $< -o $@
 
 clean:
 	-rm -f *.o
