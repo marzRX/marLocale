@@ -19,8 +19,8 @@ marLocale.o: $(DIR_SRC)/marLocale.cpp $(DIR_SRC)/marLocale.h
 	$(CXX) $(INC) $(CXXFLAGS) -c $< -o $@
 
 clean:
-	-rm -f *.o
-	-rm -f $(TARGET)
+	rm -f *.o
+	rm -f $(TARGET)
 
 ##
 # $@ ... target_name
