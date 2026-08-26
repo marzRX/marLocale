@@ -1,12 +1,12 @@
-CURROOT = $(shell git rev-parse --show-cdup)
-# CURROOT's trailing '/', gets the path to the Git root
-# CURROOT の終端は、'/', Git のルートとなるパスを取得してる
+REPO_ROOT := $(shell git rev-parse --show-cdup)
+# REPO_ROOT's trailing '/', gets the path to the Git root
+# REPO_ROOT の終端は、'/', Git のルートとなるパスを取得してる
 
 CXXFLAGS = -g -std=gnu++17 -Wno-format-security
 
 CXX = g++
-DIR_SRC = $(CURROOT)src
-DIR_IMGUI = $(CURROOT)External/imgui
+DIR_SRC = $(REPO_ROOT)src
+DIR_IMGUI = $(REPO_ROOT)External/imgui
 INC = -I$(DIR_SRC) -I$(DIR_IMGUI)
 ifdef OS
   # Windows (msys2)
@@ -21,6 +21,7 @@ TARGET = prog$(V).exe
 OBJS = prog$(V).o marLocale.o \
 imgui.o imgui_widgets.o imgui_draw.o imgui_impl_glfw.o imgui_impl_opengl3.o imgui_tables.o
 
+.PHONY: all clean run
 all: $(TARGET)
 
 $(TARGET): $(OBJS)
@@ -53,6 +54,9 @@ prog$(V).o: prog$(V).cpp
 clean:
 	rm -f *.o
 	rm -f $(TARGET)
+
+run: $(TARGET)
+	./$(TARGET)
 
 ##
 # $@ ... target_name

@@ -7,6 +7,7 @@ TARGET = prog$(V).exe
 OBJS = prog$(V).o marLocale.o
 CXXFLAGS = -g
 
+.PHONY: all clean run
 all: $(TARGET)
 
 $(TARGET): $(OBJS)
@@ -21,6 +22,9 @@ marLocale.o: $(DIR_SRC)/marLocale.cpp $(DIR_SRC)/marLocale.h
 clean:
 	rm -f *.o
 	rm -f $(TARGET)
+
+run: $(TARGET)
+	./$(TARGET)
 
 ##
 # $@ ... target_name
