@@ -16,9 +16,12 @@ else
   LIBS = -lGL -lglfw -lGLEW -ldl
 endif
 
-V ?= 2
-TARGET = prog$(V).exe
-OBJS = prog$(V).o marLocale.o \
+# prog*.cpp をメインモジュールとする
+MAIN_SRC := $(wildcard prog*.cpp)
+TARGET_BASE := $(basename $(MAIN_SRC))
+
+TARGET = $(TARGET_BASE).exe
+OBJS = $(TARGET_BASE).o marLocale.o \
 imgui.o imgui_widgets.o imgui_draw.o imgui_impl_glfw.o imgui_impl_opengl3.o imgui_tables.o
 
 .PHONY: all clean run
@@ -48,7 +51,7 @@ imgui_impl_opengl3.o: $(DIR_IMGUI)/imgui_impl_opengl3.cpp
 imgui_tables.o: $(DIR_IMGUI)/imgui_tables.cpp
 	$(CXX) $(INC) $(CXXFLAGS) -c $< -o $@
 
-prog$(V).o: prog$(V).cpp
+$(TARGET_BASE).o: $(TARGET_BASE).cpp
 	$(CXX) $(INC) $(CXXFLAGS) -c $< -o $@
 
 clean:

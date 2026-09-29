@@ -2,9 +2,12 @@ CXX = g++
 DIR_SRC = ../../src
 INC = -I$(DIR_SRC)
 
-V ?= 1
-TARGET = prog$(V).exe
-OBJS = prog$(V).o marLocale.o
+# prog*.cpp をメインモジュールとする
+MAIN_SRC := $(wildcard prog*.cpp)
+TARGET_BASE := $(basename $(MAIN_SRC))
+
+TARGET = $(TARGET_BASE).exe
+OBJS = $(TARGET_BASE).o marLocale.o
 CXXFLAGS = -g
 
 .PHONY: all clean run
@@ -13,7 +16,7 @@ all: $(TARGET)
 $(TARGET): $(OBJS)
 	$(CXX) $(INC) -o $(TARGET) $(OBJS) $(LIBS)
 
-prog$(V).o: prog$(V).cpp
+$(TARGET_BASE).o: $(TARGET_BASE).cpp
 	$(CXX) $(INC) $(CXXFLAGS) -c $< -o $@
 
 marLocale.o: $(DIR_SRC)/marLocale.cpp $(DIR_SRC)/marLocale.h
