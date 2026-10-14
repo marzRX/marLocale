@@ -8,7 +8,7 @@ CXX = g++
 DIR_SRC = $(REPO_ROOT)src
 DIR_IMGUI = $(REPO_ROOT)External/imgui
 INC = -I$(DIR_SRC) -I$(DIR_IMGUI)
-ifdef OS
+ifeq ($(OS),Windows_NT)
   # Windows (msys2)
   LIBS = -lopengl32 -lglfw3 -lglew32
 else
@@ -28,7 +28,7 @@ imgui.o imgui_widgets.o imgui_draw.o imgui_impl_glfw.o imgui_impl_opengl3.o imgu
 all: $(TARGET)
 
 $(TARGET): $(OBJS)
-	$(CXX) $(INC) -o $(TARGET) $(OBJS) $(LIBS)
+	$(CXX) -o $(TARGET) $(OBJS) $(LIBS)
 
 marLocale.o: $(DIR_SRC)/marLocale.cpp $(DIR_SRC)/marLocale.h
 	$(CXX) $(INC) $(CXXFLAGS) -c $< -o $@

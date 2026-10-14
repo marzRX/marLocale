@@ -14,7 +14,7 @@ CXXFLAGS = -g
 all: $(TARGET)
 
 $(TARGET): $(OBJS)
-	$(CXX) $(INC) -o $(TARGET) $(OBJS) $(LIBS)
+	$(CXX) -o $(TARGET) $(OBJS) $(LIBS)
 
 $(TARGET_BASE).o: $(TARGET_BASE).cpp
 	$(CXX) $(INC) $(CXXFLAGS) -c $< -o $@
