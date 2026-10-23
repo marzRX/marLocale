@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <GL/glew.h>
 #include <GLFW/glfw3.h>
 #include "imgui.h"
 #include "imgui_impl_glfw.h"
@@ -179,19 +178,6 @@ int main()
   printf("OpenGL Version = %s\n", glGetString(GL_VERSION));
   printf("GLSL   Version = %s\n", glGetString(GL_SHADING_LANGUAGE_VERSION));
 #endif
-
-  // GLEW initialization is commented out because OpenGL extensions are not used in this program.
-  // 今回はOpenGL拡張を使用していないので、GLEWの初期化処理をコメントアウトしています。
-  /*
-  // Enable OpenGL extensions.
-  // OpenGL 拡張機能を使えるようにする。
-  glewExperimental = GL_TRUE;
-  GLenum err = glewInit();
-  if (err != GLEW_OK) {
-    fprintf(stderr, "Error: '%s'\n", glewGetErrorString(err));
-    return 1;
-  }
-  */
 
   // Specify the background color.
   // 背景色を指定する。

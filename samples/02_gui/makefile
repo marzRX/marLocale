@@ -10,10 +10,10 @@ DIR_IMGUI = $(REPO_ROOT)External/imgui
 INC = -I$(DIR_SRC) -I$(DIR_IMGUI)
 ifeq ($(OS),Windows_NT)
   # Windows (msys2)
-  LIBS = -lopengl32 -lglfw3 -lglew32
+  LIBS = -lopengl32 -lglfw3
 else
   # Linux
-  LIBS = -lGL -lglfw -lGLEW -ldl
+  LIBS = -lGL -lglfw -ldl
 endif
 
 # prog*.cpp をメインモジュールとする
